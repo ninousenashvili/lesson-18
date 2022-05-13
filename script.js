@@ -31,7 +31,7 @@ let data = [
 
 
 let leftarrow = document.getElementById('left-arrow');
-let rightarrow = document.getAnimations('right-arrow');
+let rightarrow = document.getElementById('right-arrow');
 let slidercontent = document.getElementById('slider-content');
 let dotsList = document.getElementsByClassName('dot');
 
@@ -54,22 +54,22 @@ function createh2tag(item) {
 }
 
 
-// function createimgtag(item) {
-//     slidercontent.style.backgroundImage = 'url(' + item.imgurl + ')';
-//     slidercontent.style.backgroundRepeat = "no-repeat";
-//     slidercontent.style.backgroundsize = "cover";
-
-// }
-
-
 function createimgtag(item) {
-    let image = document.createElement('img');
-    image.setAttribute('src', item.imgurl);
-    image.setAttribute('alt', item.title);
-    image.classList.add('image-slider');
-    return image;
+    slidercontent.style.backgroundImage = 'url(' + item.imgurl + ')';
+    slidercontent.style.backgroundRepeat = "no-repeat";
+    slidercontent.style.backgroundSize = "cover";
 
 }
+
+
+// function createimgtag(item) {
+//     let image = document.createElement('img');
+//     image.setAttribute('src', item.imgurl);
+//     image.setAttribute('alt', item.title);
+//     image.classList.add('image-slider');
+//     return image;
+
+// }
 
 function createdots(item) {
     let dots = document.createElement('div');
@@ -98,11 +98,12 @@ function setslider() {
     slidercontent.innerHTML = ' ';
     let slideitem = createatag(data[sliderindex]);
     let h2tag = createh2tag(data[sliderindex]);
-    let imgtag = createimgtag(data[sliderindex]);
+    // let imgtag = createimgtag(data[sliderindex]);
     let dots = createdots(data[sliderindex]);
+    createimgtag(data[sliderindex]);
 
 
-    slideitem.appendChild(imgtag);
+    // slideitem.appendChild(imgtag);
     slideitem.appendChild(h2tag);
     slidercontent.appendChild(slideitem);
     slidercontent.appendChild(dots);
@@ -136,10 +137,10 @@ function arrowrightclick() {
 }
 
 leftarrow.addEventListener('click', arrowleftclick);
-// rightarrow.addEventListener('click', arrowrightclick);
+rightarrow.addEventListener('click', arrowrightclick);
 
-setInterval(() => {
-    arrowrightclick();
-}, 3000);
+// setInterval(() => {
+//     arrowrightclick();
+// }, 3000);
 
 setslider();

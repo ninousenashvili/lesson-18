@@ -4,7 +4,7 @@
 
 }
 
-.slide {
+/* .slide {
     width: 100%;
 }
 
@@ -13,8 +13,10 @@
     height: 600px;
     object-fit: cover;
 
+} */
+.slider-content {
+    height: 100vh;
 }
-
 
 .slider-title {
     font-size: 50px;
